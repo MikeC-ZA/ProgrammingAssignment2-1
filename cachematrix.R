@@ -3,7 +3,7 @@
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
 
-## Defines a function set the values in a matrix
+## Defines a function to set the values in a matrix
   set <- function(y) {
     x <<- y
     m <<- NULL

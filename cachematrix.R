@@ -15,15 +15,19 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 ## This function computes the inverse of the special "matrix" returned by makeCacheMatrix.
-## If the inverse has already been calculated (and the matrix has not changed) then the
-## cacheSolve function should retrieve the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
   m <- x$getInverse()
+
+## If the inverse has already been calculated (and the matrix has not changed) then the
+## cacheSolve function retrieves the inverse from the cache
   if(!is.null(m)) {
     message("getting cached data")
     return(m)
   }
+
+## If the inverse has not yet been calculated then the cacheSolove function determines
+## the inverse matrix and saves it to cache
   data <- x$get()
   m <- solve(data, ...)
   x$setInverse(m)
